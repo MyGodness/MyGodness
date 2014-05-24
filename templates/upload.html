@@ -1,0 +1,25 @@
+<%inherit file="base.html" />
+
+<%def name="css_files()">
+    ${ parent.css_files() }
+    ## <link href="/static/css/index.css" rel="stylesheet">
+</%def>
+
+<%def name="title()">Knights</%def>
+<%def name="js_defer()">
+  ${ parent.js_defer() }
+  <script src="/static/js/myfreq.js"></script>
+</%def>
+
+<div class="col-xd-12">
+    <h2>Knights</h2>
+    <br>
+    % if object_list:
+      % for people in object_list:
+        <h3> ${ people } </h3>
+      % endfor
+    % endif
+    <button id="add" class="btn btn-success">Add</button>
+
+</div>
+
