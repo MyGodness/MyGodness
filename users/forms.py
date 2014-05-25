@@ -17,22 +17,27 @@ class MyGodnessUserForm(forms.ModelForm):
         fields = ('gender', 'photo', 'motto', 'major', 'school')
 
     def save(self):
+        userInfo, create = MyGodnessUser.objects.get_or_create(user_id=self.instance.user_id)
+        if not create:
+            userInfo.motto = self.cleaned_data['motto']
+            userInfo.photo = self.cleaned_data['photo']
+            userInfo.gender = self.cleaned_data['gender']
+            userInfo.major = self.cleaned_data['major']
+            userInfo.school = self.cleaned_data['school']
+            userInfo.save()
+        else:
+            userInfo.motto = self.cleaned_data['motto']
+            userInfo.photo = self.cleaned_data['photo']
+            userInfo.gender = self.cleaned_data['gender']
+            userInfo.major = self.cleaned_data['major']
+            userInfo.school = self.cleaned_data['school']
+            userInfo.save()
+
+'''    def save(self):
         user_id = self.instance.user_id
-        super(MyGodnessUserForm, self).save()
-'''
-    def save(self):
-        userInfo = MyGodnessUser.objects.get_or_create(user_id=self.instance.user_id)
-        print userInfo
-        userInfo.motto = self.cleaned_data['motto']
-        userInfo.photo = self.cleaned_data['photo']
-        userInfo.gender = self.cleaned_data['gender']
-        userInfo.major = self.cleaned_data['major']
-        userInfo.school = self.cleaned_data['school']
-        userInfo.save()
-        userInfo.save(
-            motto = self.cleaned_data['motto'],
-            phMyoto = self.cleaned_data['photo'],
-            gender = self.cleaned_data['gender'],
-            major = self.cleaned_data['major'],
-            school = self.cleaned_data['school'],
-        )'''
+        super(MyGodnessUserForm, self).save()'''
+
+
+
+
+
