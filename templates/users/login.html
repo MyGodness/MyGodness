@@ -1,0 +1,28 @@
+<%inherit file="../base.html" />
+
+<%def name="css_files()">
+    ${ parent.css_files() }
+    ## <link href="/static/css/index.css" rel="stylesheet">
+</%def>
+
+<%def name="title()">MyFreq! - result</%def>
+<%def name="js_defer()">
+    ${ parent.js_defer() }
+</%def>
+
+<div class="col-xd-12">
+  <h3> ${ usage }</h3>
+  <form class="form-horizontal" id="loginForm" method="post" role="form">
+    % for field in form:
+      ${ field.name }
+      ${ field }
+    % if field.errors:
+      <span class='help-block'>${ field.errors[0] }</span>
+    % endif
+    % endfor
+
+    <div class="form-group">
+      <input class="btn" type="submit" value="Create">
+    </div>
+  </form>
+</div>

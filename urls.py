@@ -2,7 +2,9 @@ from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
 
-from MyGodness import views
+import auth.views
+import users.views
+import MyGodness.views
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,7 +12,10 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     #url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.IndexView.as_view(), name = 'index'),
+    url(r'^$', MyGodness.views.IndexView.as_view(), name = 'index'),
+    url(r'personal-info', users.views.PersonInfoView.as_view(), name = 'personinfo'),
+    url(r'^login$', auth.views.LoginView.as_view(), name = 'login'),
+    url(r'^register$', auth.views.RegisterView.as_view(), name = 'register'),
 )
 
 urlpatterns += patterns('django.contrib.staticfiles.views',
