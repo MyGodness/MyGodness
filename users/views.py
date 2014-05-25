@@ -22,6 +22,15 @@ class PersonInfoView(FormView):
     model = MyGodnessUser
     form_class = MyGodnessUserForm
 
+    def get_form_kwargs(self):
+        kwargs = super(PersonInfoView, self).get_form_kwargs()
+        kwargs['user_id'] = self.request.user.id
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+        return render(self.request, 'index.html')
+
     def get_success_url(self):
         return reverse('index')
 

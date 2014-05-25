@@ -8,6 +8,7 @@ from django.views.generic import (
     View,
 )
 
+
 from auth.forms import (
     LoginForm,
     RegisterForm,
