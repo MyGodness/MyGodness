@@ -17,5 +17,6 @@ class MyGodnessUser(models.Model):
     major = models.CharField(max_length=30, null=True)
     school = models.CharField(max_length=50, null=True)
 
-
+#class followers(models.Model):
+    
 
