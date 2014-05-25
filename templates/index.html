@@ -5,11 +5,67 @@
     ## <link href="/static/css/index.css" rel="stylesheet">
 </%def>
 
-<%def name="title()">MyFreq! - result</%def>
+<%def name="title()">MyGodness - result</%def>
 <%def name="js_defer()">
     ${ parent.js_defer() }
+    <script src="/static/js/index.js"></script>
 </%def>
 
-<div class="col-xd-12">
-    <h3> Hello MyGodness! </h3>
-</div>
+<body>
+
+	<div class="col-xd-12">
+	    <h3> Hello MyGodness! </h3>
+	</div>
+	<button class="btn btn-lg btn-info" data-toggle="modal" data-target="#Login">Log in</button>
+	<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="login_Label" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <center>
+	                    <h4 class="modal-title" id="login_Label">Log in</h4>
+	                </center>
+	            </div>
+	            <div class="modal-body">
+	                <form class="form" role="form" >
+	                    <div class="form-group" >
+	                        <label for="user_id" class="col-xs-2 control-label">User ID</label>
+	                        <div class="col-xs-12">
+	                            <input type="name" class="form-control" id="user_id" placeholder="User Id">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label for="inputPassword1" class="col-xs-2 control-label">Password</label>
+	                        <div class="col-xs-12">
+	                            <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+	                        </div>
+	                    </div>
+	                    <div class = "to_show" style = "display:none">
+		                    <div class="form-group">
+		                        <label for="inputPassword2" class="col-xs-10 control-label">Confirm Password</label>
+		                        <div class="col-xs-12">
+		                            <input type="password" class="form-control" id="inputPassword2" placeholder="Confirm Password">
+		                        </div>
+		                    </div>
+
+	                    <div class="form-group">
+	                        <label for="inputEmail" class="col-xs-2 control-label">Email</label>
+	                        <div class="col-xs-12">
+	                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+	                        </div>
+	                    </div>
+	                  </div>                               
+	                            <button type = "button" class="btn btn-info btn-lg btn-block to_hide" onclick="login()">Log in</button>
+	                            <button type = "button" class="btn btn-info btn-lg btn-block" id = "user_signup" onclick="createNewUser()" >Sign Up</button>
+	                </form>
+
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reinitial()">Close</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+</body>
